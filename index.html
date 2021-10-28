@@ -1,0 +1,215 @@
+<!-- Name: David Chang, Edmond Niu, Alex Postovskiy, Andrew Somers
+Course: CSE
+Assignment: CSE Capstone Project
+Purpose: The main html page where everything happens  -->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <link rel="stylesheet" href="/css/mathquill.css"/>   
+
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--If you import more than 1 cSS file, be aware that the styles are applied in the order they are linked-->
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+      <!--Reference to the CSS stylesheet-->
+      <link rel="stylesheet" href="css/stylesheet.css">
+
+      <!-- getting rid of an error that shows up -->
+      <link rel="shortcut icon" href="#">
+      
+      <title>CSE Capstone</title>
+    </head>
+
+    <body class = "grey darken-4">
+      <nav class = "topofpage grey darken-2">
+        <a href="#" class="brand-logo right ">Optical Simulator 8999</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tutorial.html">Tutorial</a></li>
+        </ul>
+      </nav>
+      <main class = "height80">
+          <div class="row height100">
+            <div class="col s3 grey darken-3 height100">
+              <!-- left ui -->
+              <div id = leftdiv class = "height100 scroll" >
+                <a class="waves-effect waves-purple btn blue-grey" onclick= "makeNewCollection();" >New Collection</a>
+                <a class="waves-effect waves-purple btn blue-grey" onclick= "makeNewRay();" >New Ray</a>
+                <ul id = collapsibleul class="collapsible expandable darkgreyborder "></ul>
+                <div class="width100">
+                  <ul class="collapsible expandable darkgreyborder "></ul>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col s7 height100 everythingzero" id="c-resize">
+                <canvas class = "everythingzero" id="optics-canvas" width="200" height="400" ></canvas>
+            </div>
+
+            <div class="col s2 grey darken-3 height100">
+              
+              <ul class="collapsible expandable darkgreyborder " id = libraryul>
+                  <li class="">
+                    <div class="collapsible-header grey darken-1 darkgreyborder everythingzero" tabindex="0">
+                        <div class="width100 everythingzero row">
+                            <div class="col s12 everythingzero"><p class="namefield everythingzero">Lenses:</p></div>
+                        </div>
+                    </div>
+                    <div class="collapsible-body grey darkgreyborder everythingzero" >
+                        <div class="width100 everythingzero row">
+                            <div class="col s12 everythingzero">
+                              <button class="addcurvebutton btn-small blue-grey waves-effect waves-purple width100" id = "biconvex">biconvex circular</button>
+                              <button class="addcurvebutton btn-small blue-grey waves-effect waves-purple width100" id = "biconcave">biconcave circular</button>
+                              <button class="addcurvebutton btn-small blue-grey waves-effect waves-purple width100" id = "cc">convex concave</button>
+                            </div>
+                        </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <div class="collapsible-header grey darken-1 darkgreyborder everythingzero" tabindex="0">
+                        <div class="width100 everythingzero row">
+                            <div class="col s12 everythingzero"><p class="namefield everythingzero">Mirrors:</p></div>
+                        </div>
+                    </div>
+                    <div class="collapsible-body grey darkgreyborder everythingzero" >
+                        <div class="width100 everythingzero row">
+                          <div class="width100 everythingzero row">
+                            <div class="col s12 everythingzero">
+                              <button class="addcurvebutton btn-small blue-grey waves-effect waves-purple width100" id = "parabolic">parabolic</button>
+                              <button class="addcurvebutton btn-small blue-grey waves-effect waves-purple width100" id = "circular">circular</button>
+                              <button class="addcurvebutton btn-small blue-grey waves-effect waves-purple width100" id = "square">square</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                  </li>
+                <li class="">
+                  <div class="collapsible-header grey darken-1 darkgreyborder everythingzero" tabindex="0">
+                      <div class="width100 everythingzero row">
+                          <div class="col s12 everythingzero"><p class="namefield everythingzero">Polygonal Collections:</p></div>
+                      </div>
+                  </div>
+                  <div class="collapsible-body grey darkgreyborder everythingzero" >
+                      <div class="width100 everythingzero row">
+                        <div class="col s6 everythingzero" id = Sides>
+                          <p class = everythingzero>Sides</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero" id = Apothem>
+                          <p class = everythingzero>Apothem</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero" id = rotation>
+                          <p class = everythingzero >Rotation</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero" id = pn>
+                          <p class = everythingzero>n</p>
+                          
+                        </div>
+                        <div class = "col s12 center-align">
+                          <button class="btn-small grey waves-effect waves-purple tooltipped" id="poly-transmit"data-position="bottom" data-tooltip="Transmit">T</button>
+                          <button class="btn-small blue-grey waves-effect waves-purple tooltipped"id="poly-reflect" data-position="bottom" data-tooltip="Reflect">R</button>
+                          <button class="btn-small grey waves-effect waves-purple tooltipped"id="poly-absorb" data-position="bottom" data-tooltip="Absorb">A</button>
+                        </div>
+                        <div class = "col s12 center-align">
+                          <button class="btn-small blue-grey waves-effect waves-purple" onclick="polyGenerator()">generate</button>
+                        </div>
+                      </div>
+                  </div>
+                </li>
+                <li class="">
+                  <div class="collapsible-header grey darken-1 darkgreyborder everythingzero" tabindex="0">
+                      <div class="width100 everythingzero row">
+                          <div class="col s12 everythingzero"><p class="namefield everythingzero">Conic Collections:</p></div>
+                      </div>
+                  </div>
+                  <div class="collapsible-body grey darkgreyborder everythingzero" >
+                      <div class="width100 everythingzero row">
+                        <div class="col s6 everythingzero" id = eccentricity>
+                          <p class = everythingzero>Eccentricity</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero " id = directrix>
+                          <p class = everythingzero>Directrix</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero" id = bound>
+                          <p class = everythingzero >Bound</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero" id = crotation>
+                          <p class = everythingzero>Rotation</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero" id = cn>
+                          <p class = everythingzero>n</p>
+                          
+                        </div>
+                        <div class="col s6 everythingzero" id = thick>
+                          <p class = everythingzero>Thickness</p>
+                          
+                        </div>
+                        <div class = "col s12 center-align">
+                          <button class="btn-small grey waves-effect waves-purple tooltipped" id="conic-transmit"data-position="top" data-tooltip="Transmit">T</button>
+                          <button class="btn-small blue-grey waves-effect waves-purple tooltipped" id="conic-reflect" data-position="top" data-tooltip="Reflect">R</button>
+                          <button class="btn-small grey waves-effect waves-purple tooltipped" id="conic-absorb" data-position="top" data-tooltip="Absorb">A</button>
+                        </div>
+                        <div class = "col s12 center-align">
+                          <button class="btn-small grey waves-effect waves-purple tooltipped" id="conic-biconvex" data-position="bottom" data-tooltip="biconvex">BCX</button>
+                          <button class="btn-small blue-grey waves-effect waves-purple tooltipped" id="conic-biconcave" data-position="bottom" data-tooltip="biconcave">BCV</button>
+                          <button class="btn-small grey waves-effect waves-purple tooltipped" id="conic-convex-concave" data-position="bottom" data-tooltip="convex-concave">C-C</button>
+                        </div>
+                        <div class = "col s12 center-align">
+                          <button class="btn-small blue-grey waves-effect waves-purple" onclick =  "conicGenerator()">generate</button>
+                        </div>
+                      </div>
+                  </div>
+                </li>
+              </ul>
+            </div>      
+          </div>
+      </main>
+
+      <footer class="page-footer grey darken-2 height75">
+        <div class="footer-copyright">
+          <div class="container">
+            created by Andrew, Alex, Edmond, and David
+          <a class="grey-text text-darken-1 right" href="https://www.youtube.com/embed/dQw4w9WgXcQ">World's Best Feedback Form</a>
+          </div>
+        </div>
+      </footer>
+                                                                                                         
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="/lib/mathquill.js"></script>
+
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="lib/materialize.min.js"></script>
+
+      <script src="lib/nerdamer/nerdamer.core.js"></script>
+      <script src="lib/nerdamer/Algebra.js"></script>
+      <script src="lib/nerdamer/Calculus.js"></script>
+      <script src="lib/nerdamer/Extra.js"></script>
+      <script src="lib/nerdamer/Solve.js"></script>
+
+      <!--Import custom scripts-->
+      <script src="js/util.js"></script>
+      <script src="js/core.js"></script>
+      <script src="js/canvas.js"></script>
+
+      <script src="js/quill.js"></script>
+      <script src="js/library.js"></script>
+      <script src = "js/rightcol.js"></script>
+
+      <!--Import evaluatex-->
+      <script src='/lib/evaluatex.js'></script>
+    </body>
+  
+  </html>

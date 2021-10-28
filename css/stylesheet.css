@@ -1,0 +1,110 @@
+/* Name: David Chang, Edmond Niu, Alex Postovskiy, Andrew Somers
+Course: CSE
+Assignment: CSE Capstone Project
+Purpose: Css for our site */
+
+.width100{
+  width: 100%;
+}
+.width20{
+  width: 20% !important; 
+}
+
+.height100 {
+    height: 100%;
+    
+  }
+
+.height80 {
+    height: 80%;
+    
+  }
+
+.bircc {
+ /*  buttons in right column collapsible  */
+  width: 100%;
+  margin-bottom: 2px;
+  margin-top: 2px;
+
+}
+  
+.height75 {
+    height: 75px;
+}
+html, body{
+  height: 100%
+}
+
+.darkgreyborder {
+  border: 1px solid #343131;
+}
+
+.redborder {
+  border:1px solid #ff0000;
+}
+
+.greenborder{
+  border:1px solid #00ff08;
+}
+
+.blueborder{
+  border:1px solid rgb(0, 0, 255)
+}
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.collapsible-body {
+  padding: 5px ;
+  padding-top: 3px;
+  margin: 0px ;
+}
+
+
+
+.everythingzero {
+  padding: 0px !important;
+  margin: 0px !important;
+  
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+p {
+  display: inline-block;
+}
+
+.namefield{
+  max-width: 100%;
+  min-width: 100%;
+  word-wrap: break-word;
+  font-size: 20px;
+}
+
+.maxwrap{
+  max-width: 80%;
+}
+
+.addcurvebutton{
+  border:0px solid #fbff00;
+}
+
+.deletebutton{
+  border:0px solid #e600ff;
+}
+
+.margins10{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px !important;
+}

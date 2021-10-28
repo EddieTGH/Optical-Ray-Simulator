@@ -1,0 +1,80 @@
+<!-- Name: David Chang, Edmond Niu, Alex Postovskiy, Andrew Somers
+Course: CSE
+Assignment: CSE Capstone Project
+Purpose: Guide on how to use the site-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--If you import more than 1 cSS file, be aware that the styles are applied in the order they are linked-->
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+      <!--Reference to the CSS stylesheet-->
+      <link rel="stylesheet" href="css/stylesheet.css">
+
+      <!-- getting rid of an error that shows up -->
+      <link rel="shortcut icon" href="#">
+      
+      <title>CSE Capstone</title>
+    </head>
+
+    <body class = "grey darken-3">
+
+      <nav class = "topofpage grey darken-2">
+        <a href="#" class="brand-logo right ">Site Name</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tutorial.html">Tutorial</a></li>
+        </ul>
+      </nav>
+
+      <main>
+      <div class = "page-content grey darken-3 ">
+        <div class="row ">
+          <div class="col s6 offset-s3">
+                
+            <div class = "center-align card-panel blue-grey ">
+              <h2>Tutorial and Instructions: How to Use the Optical Simulator (Curves, Rays, and Samples)</h2>
+              <h3>Creating Curves</h3>
+              <p>On the left hand side: By pressing the curve button on the top left of the home screen, you create a new curve collection. You can create multiple curve collections and you can use the delete collection button to delete a specific collection of curves. Each collection consists of a general starting position and index of refraction that the user must enter. Then the first curve must be defined, with a x and a y parametric equation. The parameter, position, bounds, and function of that curve must also be defined (transmit, reflect, or absorb). A new curve can be added under the same collection with the "+" button and deleted with the "x" button.
+              </p>
+              <p>There is also an option to add new variables which give the user the option to use a variable inside the other fields and parameters requested. </p>
+              <h3>Creating Rays</h3>
+              <p>On the left hand side: By pressing the ray button on the top left of the home screen, you create a new ray. The user will be required to enter a position vector, and a direction vector or constant in degree/radians (user preference). The user may add more rays by clicking the ray button again and pressing the delete ray button to delete the ray selected.</p>
+              <h3>Sample Shapes</h3>
+              <p>On the right hand side: By selecting any of these four samples (Lenses, Mirrors, Polgyonal Collections, Conic Collections), the user will be shown a pre-made model. This is for the users who do not want to create their own mathematical curves. <p>
+              <h5>Validity</h5><p>The user input fields are editable katex fields that utilize validity (with the library evaluateX) checking to make sure that no foreign, unrecognizable characters are inputted in the fields.</p>
+              <h5>Accepted Functions, Constants, and More</h5> <p>Most, if not all, of the user input fields are editable MQ fields that utilize the Mathquill library. These quill fields accept expressions that can utilize trigonometric functions, inverse trigonometric functions, log, ln, e, square root, fractions, and exponents.</p>
+              
+            </div>
+          
+        </div>
+          
+    
+        </div>
+      </div>
+      </main>
+
+      <footer class="page-footer grey darken-2">
+        <div class="footer-copyright">
+          <div class="container">
+            created by Andrew, Alex, Edmond, and David
+          <a class="grey-text text-darken-2 right" href="https://www.youtube.com/embed/dQw4w9WgXcQ">World's Best Feedback Form</a>
+          </div>
+        </div>
+      </footer>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="lib/materialize.min.js"></script>
+
+
+    </body>
+  
+  </html>
